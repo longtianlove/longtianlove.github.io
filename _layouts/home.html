@@ -1,31 +1,38 @@
----
-layout: default
----
-
 {% include header.html %}
 
-{% include about.html %}
+    {% include home-hero.html %}
 
-{% include history.html %}
+    <main id="portfolio">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
 
-<h2 id="Blog"> Blog </h2>
-<hr class="bar-blog"> </hr>
-{% for post in site.categories['blog'] limit:3%}
+            {% if site.data.posts.section_title != '' %}
+            <h2 class="section-title text-center">{{ site.data.posts.section_title }}</h2>
+            {% endif %}
+            {% if site.data.posts.section_subtitle != '' %}
+            <p class="section-subtitle text-center">{{ site.data.posts.section_subtitle }}</p>
+            {% endif %}
 
-    <div class="post-header title">
-      <a href="{{post.url}}"><h1 class="post-title">{{ post.title }}</h1></a>
-    </div>
-    <div class="post-header date">
-      <p class="post-meta">{{ post.date | date: "%B %-d, %Y — %H:%M" }}{% if post.author %} • {{ post.author }}{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}</p>
-    </div>
+            <div class="break"></div>
 
-{% endfor %}
-<hr class="bar-blog"> </hr>
+            {% for post in paginator.posts %}
+              <div class="wow fadeIn">
+              {% if post.position == "left" %}
+                {% include content-left.html %}
+              {% endif %}
 
-<h2 id="Blog"><a href="/posts"> More >> </a></h2>
+              {% if post.position == "right" %}
+                {% include content-right.html %}
+              {% endif %}
+              </div>
+            {% endfor %}
 
+            {% include pagination.html %}
 
+          </div>
+        </div>
+      </div>
+    </main>
 
-{% include contact.html %}
-
-{% include message.html %}
+{% include footer.html %}
