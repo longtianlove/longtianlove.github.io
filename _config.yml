@@ -1,10 +1,10 @@
 # Site settings
 title: Jekyll-Uno
 description: 'Jekyll-Uno - a minimal, responsive theme for Jekyll'
-url: ‘http://longtianlove.github.io’
-baseurl: ''
+url: 'http://joshgerdes.com/jekyll-uno'
+baseurl: '/jekyll-uno/'
 # google_analytics: 'UA-XXXXXX-X'
-# disqus_shortname: 'your-disqus-name’
+# disqus_shortname: 'your-disqus-name'
 
 author:
   name: 'Josh Gerdes'
@@ -23,7 +23,7 @@ defaults:
         layout: 'post'
 
 # Build settings
-destination: 
+destination: _site
 paginate: 10
 permalink: /:year/:title/
 markdown: kramdown
